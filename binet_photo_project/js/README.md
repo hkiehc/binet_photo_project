@@ -1,2 +1,2 @@
-# binet_photo_project
+# js
 fichiers js

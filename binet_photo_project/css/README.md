@@ -1,2 +1,2 @@
-# binet_photo_project
+# css
 Sous-repertoires pour les fichiers css

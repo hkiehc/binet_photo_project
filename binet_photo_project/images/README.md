@@ -1,2 +1,2 @@
-# binet_photo_project
+# images
 Sous-repertoires pour la base de donnée
