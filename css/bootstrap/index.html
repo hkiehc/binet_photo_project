@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Ma première page avec Bootstrap</title>
+
+        <!-- CSS Bootstrap -->
+        <link href="css/bootstrap.css" rel="stylesheet">
+
+        <!-- CSS Perso -->
+        <link href="css/perso.css" rel="stylesheet">
+
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+       
+
+
+
+     <div class="container-fluid">
+
+            <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="#accueil">Accueil</a></li>
+                            <li><a href="#info">Informations pratiques</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Langages <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">HTML5</a></li>
+                                    <li><a href="#">CSS</a></li>
+                                    <li><a href="#">PHP</a></li>
+                                    <li><a href="#">SQL</a></li>
+                                    <li><a href="#">Javascript</a></li>
+                                    <li class="divider"></li>
+                                    <li class="dropdown-header">Avancé</li>
+                                    <li><a href="#">AJAX</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mon compte <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Changer mot de passe</a></li>
+                                    <li><a href="#">Modifier mon email</a></li>
+                                    <li><a href="#">Supprimer mon compte</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
+
+
+            <div class="jumbotron">
+                <h1>Bienvenue dans le monde de l'humour !!</h1>
+
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-10 col-md-offset-1 fond">
+                    <h2>Les intervenants</h2>
+                    <div class="row">
+                        <div class="col-md-4 col-md-offset-1">
+                            <img class="img-circle img-responsive center-block artiste" src="img/jamel.jpg" alt="Jamel Debouzze">
+                            <h3> Jamel Debbouzze</h3>
+                            <p>Jamel Debbouze, né le 18 juin 1975 à Paris, est un humoriste, acteur et producteur franco-marocain.</p>
+
+                        </div>
+
+                        <div class="col-md-4 col-md-offset-1">
+
+                            <img class="img-circle img-responsive center-block artiste" src="img/gad.jpg" alt="Ged El Maleh">
+                            <h3>Gad El Maleh</h3>
+                            <p>Gad Elmaleh, né le 19 avril 1971 à Casablanca, au Maroc, est un humoriste, acteur et réalisateur de nationalités marocaine, canadienne et française.</p>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+            
+            <div class="row">
+                <div class="col-md-5 col-md-offset-1 "><blockquote class="temoignage">Je cultive mon jardin. Et dans ma vie professionnelle comme dans mon carré de jardin, j’ai bien l’intention d’exclure les navets !
+                <footer> Louis de Funès</footer>
+                </blockquote>
+
+
+                </div>
+
+                <div class="col-md-5 col-md-offset-1 "><blockquote class="temoignage">Les aspirations des pauvres ne sont pas très éloignées des réalités des riches.
+                <footer> Pierre Desproges</footer>
+                </blockquote>
+                </div>
+            </div>
+
+           
+            <div class="row">
+                <div class="col-md-4 col-md-offset-1">
+                    <div class="panel-primary">
+                       <div class="panel-heading">
+                                <h3>Intervenants</h3>
+                        </div>
+                            <div class="panel-body">
+                                <dl>
+                                    <dt>Jamel Debbouz</dt>
+                                    <dd>
+                                        Humouriste français avec un style particulier
+                                    </dd>    
+                                    <dt>Gad El Maleh</dt>
+                                    <dd>
+                                        Autre humouriste.
+                                    </dd> 
+                                    
+                                    
+
+                                </dl>
+
+                            </div>
+                        
+                    </div>
+                </div>
+
+                <div class="col-md-5 col-md-offset-1">
+                    <div class="panel-primary">
+                        <div class="panel-heading">
+                                <h3>Planning de la journée</h3>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-striped">
+                                <thead>
+                                    <th>Horaire</th>
+                                    <th>Salle</th>
+                                    <th>Intervenants</th>
+                                    
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td>9h-11h</td>
+                                        <td>Amphi Pain Levé</td>
+                                        <td>Jamel Debbouz</td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>10h30-12h</td>
+                                        <td>Amphi Laggarigue</td>
+                                        <td>Gad el Maleh</td>
+                                        
+                                    </tr>
+
+                                </tbody>
+
+                            </table> 
+                        </div>
+
+
+
+                    </div> 
+
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="js/jquery.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.js"></script>
+    </body>
+</html>
