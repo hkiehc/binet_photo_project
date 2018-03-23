@@ -3,49 +3,41 @@
 class Utilisateur{
 	
 	public $login;
-    public $mdp;
     public $nom;
     public $prenom;
-    public $promotion;
-    public $naissance;
-    public $email;
-    public $feuille;
+    public $mdp;
+    public $casert;
+    public $admin;
+    public $trigramme;
+    public $argent;
  
     public function __toString() {
-    	if($this->promotion == null){
-    		return "[".$this->login."] ".$this->prenom." ".$this->nom.", né le ".$this->naissance.",".$this->email;
-    	}
-        else{
-        	return "[".$this->login."] ".$this->prenom." ".$this->nom.", né le ".$this->naissance.", ".$this->promotion." ".$this->email;}
+
+    	return "[".$this->login."] ".$this->nom." ".$this->prenom.", né le ".$this->casert.",".$this->admin.",".$this->trigramme.",".$this->argent;
+    	
     }
 
     public static function getUtilisateur($dbh,$login){
-        
+
         $query = "SELECT * FROM `utilisateurs` WHERE `login`=?";
         $sth = $dbh->prepare($query);
-        $sth->setFetchMode(PDO::FETCH_CLASS, 'Utilisateur');  // le resultat envoyé sera ainsi sous forme d'objet Utilisateur
-        $sth->execute(array($login));                                       // execution du code
-        $user = $sth->fetch();
-        $sth->closeCursor();                    //ferme la lecture courante donc la pile courante
+        $sth->setFetchMode(PDO::FETCH_CLASS, 'Utilisateur');  
+        $sth->execute(array($login));                                       
+        $sth->closeCursor();                    
         
-        return $user;                     //affiche le résultat via la methode tostring 
+        return $user;                      
     }
 
-    public static function insererUtilisateur($dbh,$login,$mdp,$nom,$prenom,$promotion,$naissance,$email,$feuille){
-        if(Utilisateur::getUtilisateur($dbh,$login) != null){
-            }
-            
-        else{
-            
-            $sth = $dbh->prepare("INSERT INTO `utilisateurs` (`login`, `mdp`, `nom`, `prenom`, `promotion`, `naissance`, `email`, `feuille`) VALUES(?,SHA1(?),?,?,?,?,?,?)");
-            $sth->execute(array($login,$mdp,$nom,$prenom,$promotion,$naissance,$email,$feuille));
+    public static function insererUtilisateur($dbh,$login,$nom,$prenom,$mdp,$casert,$admin,$trigramme,$argent){
+        if(Utilisateur::getUtilisateur($dbh,$login) == null){
+
+            $sth = $dbh->prepare("INSERT INTO `utilisateurs` (`login`, `nom`, `prenom`, `mdp`, `casert`, `admin`, `trigramme`, `argent`) VALUES(?,?,?,SHA1(?),?,?,?,?)");
+            $sth->execute(array($login,$nom,$prenom,$mdp,$casert,$admin,$trigramme,$argent));
             
         }
     }
 
-    public static function userexist($dbh,$login){
-        return (getUtilisateur($dbh,$login) != null);
-    }
+    
 
     public static function testerMdp($dbh,$login,$mdp){
 
@@ -69,16 +61,13 @@ class Utilisateur{
 
 
     }
-    public static function delete_champ($login){
+    public static function delete_user($login){
         $query = "DELETE FROM `utilisateurs` WHERE `login`=?;";
         $sth = $dbh->prepare($query);
         $sth->execute(array($login));
     }
 
 
-    public static function test(){
-        echo 'test reussie';
-    }
 
     
 }

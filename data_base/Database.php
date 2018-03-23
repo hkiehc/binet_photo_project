@@ -1,9 +1,9 @@
 <?php
-
+require('Utilisateur.php');
 
 class Database {
     public static function connect() {
-        $dsn = 'mysql:dbname=premiere_base;host=127.0.0.1';
+        $dsn = 'mysql:dbname=base_photo;host=127.0.0.1';
         $user = 'root';
         $password = '';
         $dbh = null;
@@ -18,6 +18,8 @@ class Database {
     }
 }
 
+
+$dbh  = Database::connect();
 
 
 ?>
