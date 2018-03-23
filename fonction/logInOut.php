@@ -8,7 +8,7 @@ function logIn($dbh){  //ok
 	if(isset($user)){
 		if(Utilisateur::testerMdp2($dbh,$user,$mdp)){ //bon mot de passe
 			$_SESSION['loggedIn'] = true;  //l'utilisateur est ainsi loggué
-			var_dump($_SESSION);   // debugage en affichant le tableau $session
+			
 		}
 		else{
 			
@@ -23,16 +23,15 @@ function logOut(){ //ok
 	unset($_SESSION['loggedIn']);
 	session_unset();
 	session_destroy();
-	var_dump($_SESSION);   // debugage en affichant le tableau $session
+	
 }
 
 function register($dbh){ //ok
  if(isset($_POST["login"]) && $_POST["login"] != "" &&
 		isset($_POST["nom"]) && $_POST["nom"] != "" &&
 		isset($_POST["prenom"]) && $_POST["prenom"] != "" &&
-		isset($_POST["naissance"]) && $_POST["naissance"] != "" &&
-   		isset($_POST["promotion"]) && $_POST["promotion"] != "" &&
-   		isset($_POST["email"]) && $_POST["email"] != "" &&
+		isset($_POST["casert"]) && $_POST["casert"] != "" &&
+		isset($_POST["trigramme"]) && $_POST["trigramme"] != "" &&
    		isset($_POST["up"]) && $_POST["up"] != "" &&
    		isset($_POST["up2"]) && $_POST["up2"] != "" &&
    		$_POST["up"] == $_POST["up2"])

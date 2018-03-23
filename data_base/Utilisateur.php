@@ -22,7 +22,8 @@ class Utilisateur{
         $query = "SELECT * FROM `utilisateurs` WHERE `login`=?";
         $sth = $dbh->prepare($query);
         $sth->setFetchMode(PDO::FETCH_CLASS, 'Utilisateur');  
-        $sth->execute(array($login));                                       
+        $sth->execute(array($login));   
+        $user = $sth->fetch();                               
         $sth->closeCursor();                    
         
         return $user;                      
@@ -50,7 +51,10 @@ class Utilisateur{
 
     public static function testerMdp2($dbh,$user,$mdp){ // version permettant d'economiser une requete
 
-        return ($user->mdp == sha1($mdp));
+        if($user->mdp == sha1($mdp)){
+            return true;
+        }
+        return false;
         
     }
 

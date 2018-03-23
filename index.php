@@ -1,8 +1,6 @@
 <?php 
-//page accueil 
-//session_name("test");
 session_start();
-if (!isset($_SESSION['initiated'])) { // dans le cas ou il n'y a pas de session on le crée via la variable initiated 
+if (!isset($_SESSION['initiated'])) { 
     session_regenerate_id();
     $_SESSION['initiated'] = true;
     

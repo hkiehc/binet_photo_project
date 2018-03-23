@@ -8,7 +8,7 @@ echo <<<CHAINE_DE_FIN
    		<p>Login : <input type="text" name="login" placeholder="login" required /></p>
 
     	<p>Password : <input type="password" name="password" required /></p>
-    	<a href="index.php?page=register">Nouveau sur le site? Créer un compte</a>
+    	<a href="index.php?page=register">Créer un compte</a>
     	<p><input type="submit" value="Valider" /></p>
  
  	</form>
@@ -54,28 +54,22 @@ echo <<<CHAINE_DE_FIN
   		<input id="prenom" type=text required name="prenom">
  	</p>
 
- 	<p>
-  		<label for="promotion">promotion:</label>
-  		<input id="promotion" type=text required name="promotion">
- 	</p>
+  <p>
+      <label for="casert">casert:</label>
+      <input id="casert" type=text required name="casert">
+  </p>
+
+  <p>
+      <label for="trigramme">trigramme:</label>
+      <input id="trigramme" type=text required name="trigramme">
+  </p>
 
  	<p>
-  		<label for="naissance">naissance:</label>
-  		<input id="naissancce" type=text required name="naissance">
- 	</p>
-
-
- 	<p>
-  		<label for="email">email:</label>
-  		<input id="email" type=email required name=email>
- 	</p>
-
- 	<p>
-  		<label for="password1">Password:</label>
+  		<label for="password1">Mot de passe:</label>
   		<input id="password1" type=password required name=up>
  	</p>
  	<p>
-  		<label for="password2">Confirm password:</label>
+  		<label for="password2">Ecriver à nouveau le mot de passe:</label>
   		<input id="password2" type=password required name=up2>
  	</p>
   	<input type=submit value="Create account">
