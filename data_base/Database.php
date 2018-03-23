@@ -1,5 +1,5 @@
 <?php
-require('Utilisateur.php');
+
 
 class Database {
     public static function connect() {
@@ -19,7 +19,6 @@ class Database {
 }
 
 
-$dbh  = Database::connect();
 
 
 ?>
