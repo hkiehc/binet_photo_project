@@ -37,14 +37,14 @@ if (!isset($_SESSION['loggedIn'])) { //J'arrive sur le site pour la première fo
             printLoginForm();
             generateHTMLFooter();
         }
-        if ($_GET["todo"] == "register_form") {
+        else if ($_GET["todo"] == "register_form") {
             printregisterForm();
             generateHTMLFooter();
         }
-        if ($_GET["todo"] == "login") {
+        else if ($_GET["todo"] == "login") {
             logIn($dbh);
         }
-        if ($_GET["todo"] == "logout") {
+        else if ($_GET["todo"] == "logout") {
             generateNavHeader();
 
             generateNavbarRight();
@@ -52,7 +52,7 @@ if (!isset($_SESSION['loggedIn'])) { //J'arrive sur le site pour la première fo
             generateNavFooter();
             generateHTMLFooter();
         }
-        if ($_GET["todo"] == "register") {
+        else if ($_GET["todo"] == "register") {
             register($dbh);
             generateNavHeader();
 
@@ -61,6 +61,9 @@ if (!isset($_SESSION['loggedIn'])) { //J'arrive sur le site pour la première fo
             generateNavFooter();
             generateHTMLFooter();
         }
+        else{
+                echo "Oops erreur 404 not found";
+            }   
     } else {
 
         generateNavHeader();
@@ -126,6 +129,14 @@ if (isset($_SESSION['loggedIn'])) {
         }
     }
 }
-generateContent($askedPage);
+if(isset($_GET["todo"])){
+    if($_GET["todo"] != "login_form" && $_GET["todo"] != "register_form" ){
+        generateContent($askedPage);
+    }
+}
+else{
+    generateContent($askedPage);
+}
+
 generateHTMLFooter();
 ?>
