@@ -2,7 +2,7 @@
 
 class Utilisateur{
 	
-	public $login;
+    public $login;
     public $nom;
     public $prenom;
     public $mdp;

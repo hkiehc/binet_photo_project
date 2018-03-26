@@ -21,6 +21,18 @@ and open the template in the editor.
 	font-size: x-large;
 }
 
+body{
+    background-color:#adadad;
+}
+
+div.title h1{
+    align-content: center;
+}
+
+.jumbotron a{
+    text-decoration: none;
+    color: #255625;
+}
 .artiste{
 	width:50%;
 	height:130px;

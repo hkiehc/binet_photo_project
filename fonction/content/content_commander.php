@@ -8,16 +8,19 @@
     <div class="col-md-10 col-md-offset-1">
         <p>Merci de déposer les différentes photos que tu souhaites envoyer.(formats .jgp, .jpeg, .png) accepté</p>
         <?php
-        if (isset($_GET['todo'])):
-            if ($_GET['todo'] == "upload"):
-                echo "photos envoyées!";
+        if (isset($_GET['todo'])){
+            if ($_GET['todo'] == "upload"){
+                echo "<p>photos envoyées!</p>";
                 Photos::upload_photos(); //fonction à écrire... par Cheikh bien sûr (-:
-            endif;
-        endif;
+            }
+            else{
+                echo "<p>erreur de code.</p>";
+            }
+        }
         ?>
         
-        <form action="?todo=upload" method="post" enctype="multipart/form-data">
-            <input type="image" name="fichier"/>
+        <form action="?page=commander&todo=upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="fichier"/>
             <br>
             <input type="submit" value="envoyer" />
         </form>

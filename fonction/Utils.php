@@ -1,19 +1,111 @@
 <?php
 
 $page_list = array(
-  array(
-    "name"=>"welcome",
-    "title"=>"Accueil de notre site",
-    "menutitle"=>"Accueil"),
-  array(
-    "name"=>"contacts",
-    "title"=>"Qui sommes-nous ?",
-    "menutitle"=>"Nous contacter"),
-  
+    array(
+        "name" => "accueil",
+        "title" => "Impression Binet Photo",
+        "menutitle" => "Accueil",),
+    array(
+        "name" => "administrer",
+        "title" => "Administrer les commandes",
+        "menutitle" => "Administrer les commandes"),
+    array(
+        "name" => "commander",
+        "title" => "Passer une commande",
+        "menutitle" => "Passer une commande"),
+    array(
+        "name" => "compte",
+        "title" => "Mon compte",
+        "menutitle" => "Mon compte"),
+    array(
+        "name" => "contacter",
+        "title" => "Nous contacter",
+        "menutitle" => "Nous contacter"),
+    array(
+        "name" => "historique",
+        "title" => "Historique des commandes",
+        "menutitle" => "Historique des commandes"),
 );
 
-function generateHTMLHeader(){
-echo <<<CHAINE_DE_FIN
+function checkpage($askedPage) {
+    $page_list = array(
+    array(
+        "name" => "accueil",
+        "title" => "Impression Binet Photo",
+        "menutitle" => "Accueil",),
+    array(
+        "name" => "administrer",
+        "title" => "Administrer les commandes",
+        "menutitle" => "Administrer les commandes"),
+    array(
+        "name" => "commander",
+        "title" => "Passer une commande",
+        "menutitle" => "Passer une commande"),
+    array(
+        "name" => "compte",
+        "title" => "Mon compte",
+        "menutitle" => "Mon compte"),
+    array(
+        "name" => "contacter",
+        "title" => "Nous contacter",
+        "menutitle" => "Nous contacter"),
+    array(
+        "name" => "historique",
+        "title" => "Historique des commandes",
+        "menutitle" => "Historique des commandes"),
+);
+    foreach ($page_list as $page) {
+        if ($page["name"] == $askedPage) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function getPageTitle($askedPage) {
+    $page_list = array(
+    array(
+        "name" => "accueil",
+        "title" => "Impression Binet Photo",
+        "menutitle" => "Accueil",),
+    array(
+        "name" => "administrer",
+        "title" => "Administrer les commandes",
+        "menutitle" => "Administrer les commandes"),
+    array(
+        "name" => "commander",
+        "title" => "Passer une commande",
+        "menutitle" => "Passer une commande"),
+    array(
+        "name" => "compte",
+        "title" => "Mon compte",
+        "menutitle" => "Mon compte"),
+    array(
+        "name" => "contacter",
+        "title" => "Nous contacter",
+        "menutitle" => "Nous contacter"),
+    array(
+        "name" => "historique",
+        "title" => "Historique des commandes",
+        "menutitle" => "Historique des commandes"),
+);
+    foreach ($page_list as $page) {
+        if ($page["name"] == $askedPage) {
+            return $page["title"];
+        }
+    }
+}
+
+function generateContent($askedPage) {
+    
+    echo "<div id='content'>";
+    require("content/content_$askedPage.php");
+    echo "</div>";
+}
+
+function generateHTMLHeader($askedPage) {
+    $title = getPageTitle($askedPage);
+    echo <<<CHAINE_DE_FIN
 
 <!DOCTYPE html>
   <html>
@@ -21,7 +113,7 @@ echo <<<CHAINE_DE_FIN
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Index</title>
+        <title>$title</title>
 
         <script src="css/bootstrap/js/jquery.js"></script>
         <script src="css/bootstrap/js/bootstrap.js"></script>
@@ -31,29 +123,19 @@ echo <<<CHAINE_DE_FIN
         
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
         <link href="css/bootstrap.css" rel="stylesheet">
-        <link href="css/perso.css" rel="stylesheet">
-     
-        
-
+        <link href="css/perso.css" rel="stylesheet">    
     </head>
     <body>
 
     <div class="container">
             <div class="jumbotron">
-                <h1>Binet Photo</h1>
+                <h1><a href="index.php">Binet Photo</a></h1> 
             </div>
-         
-            
- 
-            
-
-            
-
-
 CHAINE_DE_FIN;
 }
-function generateHTMLFooter(){
-echo <<<CHAINE_DE_FIN
+
+function generateHTMLFooter() {
+    echo <<<CHAINE_DE_FIN
 	    
  
     </div>
@@ -67,86 +149,82 @@ echo <<<CHAINE_DE_FIN
 CHAINE_DE_FIN;
 }
 
-function generateNavHeader(){
-echo <<<END
+function generateNavHeader() {
+    echo <<<END
 
 <div class="navbar navbar-inverse" role="navigation">
 <div class="navbar-collapse collapse">
 
 END;
-
 }
 
-function generateNavFooter(){
-echo <<<END
+function generateNavFooter() {
+    echo <<<END
 
 </div>
 </div>
  
 
 END;
-
 }
 
+function generateNavbarLeft($askedPage) {
+    $page_list = array(
+    array(
+        "name" => "accueil",
+        "title" => "Impression Binet Photo",
+        "menutitle" => "Accueil",),
+    array(
+        "name" => "administrer",
+        "title" => "Administrer les commandes",
+        "menutitle" => "Administrer les commandes"),
+    array(
+        "name" => "commander",
+        "title" => "Passer une commande",
+        "menutitle" => "Passer une commande"),
+    array(
+        "name" => "compte",
+        "title" => "Mon compte",
+        "menutitle" => "Mon compte"),
+    array(
+        "name" => "contacter",
+        "title" => "Nous contacter",
+        "menutitle" => "Nous contacter"),
+    array(
+        "name" => "historique",
+        "title" => "Historique des commandes",
+        "menutitle" => "Historique des commandes"),
+);
+    echo" <ul class='nav navbar-nav'>";
+    foreach ($page_list as $page) {
+        $menutitle = $page["menutitle"];
 
-function generateNavbarLeft(){
-echo <<<CHAINE_DE_FIN
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Accueil</a></li>
-            <li><a href="#">Mes Commandes</a></li>
-            <li><a href="#">Nous contacter</a></li>
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Administrer les commandes
-                <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">En attente</a></li>
-                    <li><a href="#">En impression</a></li>
-                                      
-                </ul>
-            </li>
-        </ul>
-
-        
-
-CHAINE_DE_FIN;
+        if ($page["name"] == $askedPage) {
+            echo "<li class='active'><a href='index.php?page=$askedPage'>$menutitle</a></li>";
+        } else {
+            $name=$page["name"];
+            echo "<li><a href='index.php?page=$name'>$menutitle</a></li>";
+        }
+    }
 }
 
-function generateNavbarRight(){
-echo <<<CHAINE_DE_FIN
+function generateNavbarRight() {
+    echo <<<CHAINE_DE_FIN
     <ul class="nav navbar-nav navbar-right">
         <li><a href="index.php?todo=register_form"><span class="glyphicon glyphicon-user"></span> Créer un compte</a></li>
         <li><a href="index.php?todo=login_form"><span class="glyphicon glyphicon-log-in"></span> Se Connecter</a></li>
     </ul>
 
 CHAINE_DE_FIN;
-
 }
 
-function generateNavbarOff(){
-echo <<<CHAINE_DE_FIN
+function generateNavbarOff() {
+    echo <<<CHAINE_DE_FIN
     <ul class="nav navbar-nav navbar-right">
         <li><a href="index.php?todo=logout"><span class="glyphicon glyphicon-off"></span> Se déconnecter</a></li>
     </ul>
 
 CHAINE_DE_FIN;
-
-}
-
-function getPageTitle($askedPage){
-  foreach($page_list as $page){
-    if($page["name"] == $askedPage){
-      return $page["title"];
-    }
-  }
-}
-
-function checkPage($askedPage){
-  foreach($page_list as $page){
-    if($page["name"] == $askedPage){
-      return true;
-    }
-  }
-  return false;
 }
 
 ?>

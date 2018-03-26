@@ -3,13 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/binet_photo_project/data_base/Database.php</file>
+            <file>file:/C:/xampp/htdocs/binet_photo_project/data_base/Utilisateur.php</file>
+            <file>file:/C:/xampp/htdocs/binet_photo_project/fonction/content/content_commander.php</file>
             <file>file:/C:/xampp/htdocs/binet_photo_project/index.php</file>
+            <file>file:/C:/xampp/htdocs/binet_photo_project/fonction/content/content_accueil.php</file>
             <file>file:/C:/xampp/htdocs/binet_photo_project/fonction/Utils.php</file>
             <file>file:/C:/xampp/htdocs/binet_photo_project/css/perso.css</file>
-            <file>file:/C:/xampp/htdocs/binet_photo_project/pages/passer%20une%20commande.php</file>
-            <file>file:/C:/xampp/htdocs/binet_photo_project/pages/Accueil.php</file>
-            <file>file:/C:/xampp/htdocs/binet_photo_project/pages/Historique%20des%20commandes.php</file>
             <file>file:/C:/xampp/htdocs/binet_photo_project/data_base/photos.php</file>
         </group>
     </open-files>
