@@ -1,0 +1,4 @@
+- Création de la classe Photos et de photos.php
+- Contenu des différentes pages: il y'a des fonctions que tu dois faire. Je n'ai pas encore fait "nous contacter"
+et "choisir la prochaine date" parce qu'il faut créer la table date qui contiendra deux champs ("date" et "current"=(0: passée, 1: présente, 2: futur) avec plusieurs dates futures possibles.
+-Je vais commencer à faire nous contacter et essayer d'ajouter des trucs pendant que tu regardes ça. Merge déjà nos deux travaux tu m'envoies histoire que je commence à faire les fonctions generate et le css

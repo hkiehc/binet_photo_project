@@ -22,10 +22,11 @@ class Utilisateur{
         $query = "SELECT * FROM `utilisateurs` WHERE `login`=?";
         $sth = $dbh->prepare($query);
         $sth->setFetchMode(PDO::FETCH_CLASS, 'Utilisateur');  
-        $sth->execute(array($login));   
+        $sth->execute(array($login)); 
+        if ($sth->rowCount() != 1) {
+            return null;  }
         $user = $sth->fetch();                               
         $sth->closeCursor();                    
-        
         return $user;                      
     }
 

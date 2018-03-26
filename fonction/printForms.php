@@ -1,84 +1,112 @@
 <?php
 
-function printLoginForm($askedPage){
+function printLoginForm(){
 echo <<<CHAINE_DE_FIN
 
-	<form action="index.php?page=$askedPage&todo=login" method="post">
+	<form class= "form-horizontal" action="index.php?todo=login" method="post">
    
-   		<p>Login : <input type="text" name="login" placeholder="login" required /></p>
+      <div class="form-group row">
+        <label for="login" class="col-2 col-form-label"></label>
+        <div class="col-10">
+          <input class="form-control" id="login" type=text required name="login" placeholder="Login">
+        </div>
+      </div> 
+   		
+      <div class="form-group row">
+        <label for="nom" class="col-2 col-form-label"></label>
+        <div class="col-10">
+          <input class="form-control" id="password1" type=password required name="password" placeholder="Mot de Passe">
+        </div>
+      </div> 
 
-    	<p>Password : <input type="password" name="password" required /></p>
-    	<a href="index.php?page=register">Créer un compte</a>
-    	<p><input type="submit" value="Valider" /></p>
+    	
+    	
+      <div class="form-group row">
+        <label for="nom" class="col-2 col-form-label"></label>
+        <div class="col-10">
+          <input class="form-control" id="button1" type=submit value="Connexion">
+        </div>
+      </div> 
+    	
+      <a href="index.php?todo=register_form">Créer un compte</a>
  
  	</form>
 
 
-
-
-
 CHAINE_DE_FIN;
-}
-function printLogOutForm(){
-echo <<<CHAINE_DE_FIN
 
-	<form action="index.php?todo=logout" method="post">
-
-		<p><input type="submit" value="Déconnexion" /></p>
-
-	</form>
-
-
-
-CHAINE_DE_FIN;
 }
 
 function printregisterForm(){
 echo <<<CHAINE_DE_FIN
 
 
+
 <form action="index.php?todo=register" method=post
       oninput="up2.setCustomValidity(up2.value != up.value ? 'Les mots de passe diffèrent.' : '')">
-	<p>
-  		<label for="login">login:</label>
-  		<input id="login" type=text required name="login">
- 	</p>
 
- 	<p>
-  		<label for="nom">nom:</label>
-  		<input id="nom" type=text  required name="nom">
- 	</p>
+  <div class="form-group row">
+    <label for="login" class="col-2 col-form-label"></label>
+    <div class="col-10">
+      <input class="form-control" id="login" type=text required name="login" placeholder="Login">
+    </div>
+  </div> 
 
- 	<p>
-  		<label for="prenom">prenom:</label>
-  		<input id="prenom" type=text required name="prenom">
- 	</p>
+  <div class="form-group row">
+    <label for="nom" class="col-2 col-form-label"></label>
+    <div class="col-10">
+      <input class="form-control" id="nom" type=text required name="nom" placeholder="Nom">
+    </div>
+  </div>    
 
-  <p>
-      <label for="casert">casert:</label>
-      <input id="casert" type=text required name="casert">
-  </p>
+  <div class="form-group row">
+    <label for="nom" class="col-2 col-form-label"></label>
+    <div class="col-10">
+      <input class="form-control" id="prenom" type=text required name="prenom" placeholder="prenom">
+    </div>
+  </div> 
 
-  <p>
-      <label for="trigramme">trigramme:</label>
-      <input id="trigramme" type=text required name="trigramme">
-  </p>
+ 	<div class="form-group row">
+    <label for="nom" class="col-2 col-form-label"></label>
+    <div class="col-10">
+      <input class="form-control" id="casert" type=text required name="casert" placeholder="casert">
+    </div>
+  </div> 
 
- 	<p>
-  		<label for="password1">Mot de passe:</label>
-  		<input id="password1" type=password required name=up>
- 	</p>
- 	<p>
-  		<label for="password2">Ecriver à nouveau le mot de passe:</label>
-  		<input id="password2" type=password required name=up2>
- 	</p>
-  	<input type=submit value="Create account">
+  <div class="form-group row">
+    <label for="nom" class="col-2 col-form-label"></label>
+    <div class="col-10">
+      <input class="form-control" id="trigramme" type=text required name="Trigramme" placeholder="trigramme">
+    </div>
+  </div> 
 
+  <div class="form-group row">
+    <label for="nom" class="col-2 col-form-label"></label>
+    <div class="col-10">
+      <input class="form-control" id="password1" type=password required name=up placeholder="Mot de Passe">
+    </div>
+  </div> 
+ 	
+  <div class="form-group row">
+    <label for="nom" class="col-2 col-form-label"></label>
+    <div class="col-10">
+      <input class="form-control" id="password2" type=password required name=up2 placeholder="Confirmer le mot de passe">
+    </div>
+  </div> 
+
+ 	<div class="form-group row">
+    <label for="nom" class="col-2 col-form-label"></label>
+    <div class="col-10">
+      <input class="form-control" id="button" type=submit value="Inscription">
+    </div>
+  </div> 
+  	
  </form>
 
 
 
 CHAINE_DE_FIN;
+
 
 }
 

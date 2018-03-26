@@ -1,19 +1,19 @@
  <?php 
 
-function logIn($dbh){  //ok
+function logIn($dbh){  
 	$login = $_POST['login'];
 	$mdp = $_POST['password'];
 	
 	$user = Utilisateur::getUtilisateur($dbh,$login);
-	if(isset($user)){
-		if(Utilisateur::testerMdp2($dbh,$user,$mdp)){ //bon mot de passe
-			$_SESSION['loggedIn'] = true;  //l'utilisateur est ainsi loggué
-			
+	if(isset($user) && isset($login) && isset($mdp)){
+		if(Utilisateur::testerMdp2($dbh,$user,$mdp)){ 
+			$_SESSION['loggedIn'] = true;  // autoriser la connexion
+
 		}
 		else{
-			
-			//printLoginForm($askedPage);
+			$_SESSION['loggedIn'] = false;
 		}
+		
 	}
 
 	
@@ -37,7 +37,7 @@ function register($dbh){ //ok
    		$_POST["up"] == $_POST["up2"])
     	{
     	
-    	Utilisateur::insererUtilisateur($dbh,$_POST["login"],$_POST["up"],$_POST["nom"],$_POST["prenom"],$_POST["promotion"],$_POST["naissance"],$_POST["email"],'test.css');
+    	Utilisateur::insererUtilisateur($dbh,$_POST["login"],$_POST["nom"],$_POST["prenom"],$_POST["up"],$_POST["casert"],'1',$_POST["trigramme"],'100');
 	
 	}
  

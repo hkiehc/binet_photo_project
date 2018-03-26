@@ -22,21 +22,19 @@ echo <<<CHAINE_DE_FIN
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Index</title>
- 
-        <!-- CSS Bootstrap -->
-        <link href="css/bootstrap.css" rel="stylesheet">
-        
-        
-        <!-- CSS Perso -->
-        <link href="css/perso.css" rel="stylesheet">
 
- 
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
+        <script src="css/bootstrap/js/jquery.js"></script>
+        <script src="css/bootstrap/js/bootstrap.js"></script>
+
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/perso.css" rel="stylesheet">
+     
+        
+
     </head>
     <body>
 
@@ -45,30 +43,7 @@ echo <<<CHAINE_DE_FIN
                 <h1>Binet Photo</h1>
             </div>
          
-            <div class="navbar navbar-inverse" role="navigation">
-                
-                    <div class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav">
-                            <li class="active"><a href="lien1">Accueil</a></li>
-                            <li><a href="lien2">Commander</a></li>
-                            <li><a href="lien3">Mes Commandes</a></li>
-                            <li><a href="lien4">Administrer les commandes</a></li>
-                            <li><a href="lien5">Nous contacter</a></li>
-                            <li><a href="lien6">Mon compte</a></li>
-                            <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1
-        <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Page 1-1</a></li>
-          <li><a href="#">Page 1-2</a></li>
-          <li><a href="#">Page 1-3</a></li>
-        </ul>
-      </li>
-                        </ul>
-                    
-                    
-            </div>
-    </div>
+            
  
             
 
@@ -79,14 +54,7 @@ CHAINE_DE_FIN;
 }
 function generateHTMLFooter(){
 echo <<<CHAINE_DE_FIN
-	
-			<div id="footer">
-                <p>Site réalisé en Modal par…</p>
-            </div>
-            <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        	<script src="js/jquery.js"></script>
-        	<!-- Include all compiled plugins (below), or include individual files as needed -->
-        	<script src="js/bootstrap.js"></script>
+	    
  
     </div>
 
@@ -99,6 +67,70 @@ echo <<<CHAINE_DE_FIN
 CHAINE_DE_FIN;
 }
 
+function generateNavHeader(){
+echo <<<END
+
+<div class="navbar navbar-inverse" role="navigation">
+<div class="navbar-collapse collapse">
+
+END;
+
+}
+
+function generateNavFooter(){
+echo <<<END
+
+</div>
+</div>
+ 
+
+END;
+
+}
+
+
+function generateNavbarLeft(){
+echo <<<CHAINE_DE_FIN
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Accueil</a></li>
+            <li><a href="#">Mes Commandes</a></li>
+            <li><a href="#">Nous contacter</a></li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Administrer les commandes
+                <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">En attente</a></li>
+                    <li><a href="#">En impression</a></li>
+                                      
+                </ul>
+            </li>
+        </ul>
+
+        
+
+CHAINE_DE_FIN;
+}
+
+function generateNavbarRight(){
+echo <<<CHAINE_DE_FIN
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="index.php?todo=register_form"><span class="glyphicon glyphicon-user"></span> Créer un compte</a></li>
+        <li><a href="index.php?todo=login_form"><span class="glyphicon glyphicon-log-in"></span> Se Connecter</a></li>
+    </ul>
+
+CHAINE_DE_FIN;
+
+}
+
+function generateNavbarOff(){
+echo <<<CHAINE_DE_FIN
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="index.php?todo=logout"><span class="glyphicon glyphicon-off"></span> Se déconnecter</a></li>
+    </ul>
+
+CHAINE_DE_FIN;
+
+}
 
 function getPageTitle($askedPage){
   foreach($page_list as $page){
