@@ -17,7 +17,7 @@ require('data_base/Utilisateur.php');
 $dbh = Database::connect();
 
 
-
+logOut();
 
 
 	if(!isset($_SESSION['loggedIn'])){ //J'arrive sur le site pour la première fois
@@ -39,6 +39,9 @@ $dbh = Database::connect();
 			}
 			if($_GET["todo"] == "login"){
 				logIn($dbh);
+
+
+
 			}
 			if($_GET["todo"] == "logout"){
 				generateHTMLHeader();  
@@ -84,10 +87,19 @@ $dbh = Database::connect();
 
 				if($_GET["todo"] == "logout") {
 					logOut();
+					generateHTMLHeader();  
+					generateNavHeader();
+
+					generateNavbarRight();						
+					
+					generateNavFooter();
+					generateHTMLFooter();
+
 				//$_session est supprimé et on bascule dans la première condiition
 	    	   
 				}
-				if($_GET["todo"] == "login"){
+				
+				else{
 					generateHTMLHeader();
 					generateNavHeader();
 						
@@ -97,7 +109,6 @@ $dbh = Database::connect();
 					generateNavFooter();
 					generateHTMLFooter();
 				}
-
 
 			}
 			else{
@@ -112,13 +123,43 @@ $dbh = Database::connect();
 			}
 		} 
 		else{
-			generateHTMLHeader();  // la connexion n'a pas fonctionné donc on affiche toujour le formulaire de connexion
-			generateNavHeader();
 
-			generateNavbarRight();						
-				
-			generateNavFooter();
-			generateHTMLFooter();
+			if(isset($_GET["todo"])){
+			
+
+				if($_GET["todo"] == "login_form") {
+					generateHTMLHeader(); 
+					printLoginForm();
+					generateHTMLFooter(); 
+		    	
+				}
+				else if($_GET["todo"] == "register_form") {
+					generateHTMLHeader(); 
+					printregisterForm();
+					generateHTMLFooter();
+		    	
+				}
+				else{
+					generateHTMLHeader();  
+					generateNavHeader();
+
+					generateNavbarRight();						
+						
+					generateNavFooter();
+					generateHTMLFooter();
+
+				}
+			}
+			else{
+				generateHTMLHeader();  
+				generateNavHeader();
+
+				generateNavbarRight();						
+					
+				generateNavFooter();
+				generateHTMLFooter();
+
+			}
 
 			}
 		

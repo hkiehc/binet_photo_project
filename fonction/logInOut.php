@@ -15,7 +15,9 @@ function logIn($dbh){
 		}
 		
 	}
-
+	else{
+			$_SESSION['loggedIn'] = false;
+	}
 	
 }
 
@@ -37,7 +39,7 @@ function register($dbh){ //ok
    		$_POST["up"] == $_POST["up2"])
     	{
     	
-    	Utilisateur::insererUtilisateur($dbh,$_POST["login"],$_POST["nom"],$_POST["prenom"],$_POST["up"],$_POST["casert"],'1',$_POST["trigramme"],'100');
+    	Utilisateur::insererUtilisateur($dbh,$_POST["login"],$_POST["nom"],$_POST["prenom"],$_POST["up"],$_POST["casert"],1,$_POST["trigramme"],100);
 	
 	}
  
