@@ -37,9 +37,9 @@ function register($dbh){ //ok
    		isset($_POST["up"]) && $_POST["up"] != "" &&
    		isset($_POST["up2"]) && $_POST["up2"] != "" &&
    		$_POST["up"] == $_POST["up2"])
-    	{
+    	{ 
     	
-    	Utilisateur::insererUtilisateur($dbh,$_POST["login"],$_POST["nom"],$_POST["prenom"],$_POST["up"],$_POST["casert"],1,$_POST["trigramme"],100);
+    	Utilisateur::insererUtilisateur($dbh,$_POST["login"],$_POST["nom"],$_POST["prenom"],$_POST["up"],$_POST["casert"],'0',$_POST["trigramme"],1.);
 	
 	}
  

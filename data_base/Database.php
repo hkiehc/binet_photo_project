@@ -1,5 +1,6 @@
 <?php
 
+//require('Utilisateur.php');
 
 class Database {
     public static function connect() {
@@ -18,6 +19,9 @@ class Database {
     }
 }
 
+$dbh = Database::connect();
+
+//Utilisateur::insererUtilisateur($dbh,'b','a','a','a','11','1','aaa',1.);
 
 
 

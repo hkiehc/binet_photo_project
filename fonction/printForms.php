@@ -76,7 +76,7 @@ echo <<<CHAINE_DE_FIN
   <div class="form-group row">
     <label for="nom" class="col-2 col-form-label"></label>
     <div class="col-10">
-      <input class="form-control" id="trigramme" type=text required name="Trigramme" placeholder="trigramme">
+      <input class="form-control" id="trigramme" type=text required name="trigramme" placeholder="trigramme">
     </div>
   </div> 
 

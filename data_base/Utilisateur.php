@@ -32,11 +32,12 @@ class Utilisateur{
 
     public static function insererUtilisateur($dbh,$login,$nom,$prenom,$mdp,$casert,$admin,$trigramme,$argent){
         if(Utilisateur::getUtilisateur($dbh,$login) == null){
-
-            $sth = $dbh->prepare("INSERT INTO `utilisateurs` (`login`, `nom`, `prenom`, `mdp`, `casert`, `admin`, `trigramme`, `argent`) VALUES(?,?,?,SHA1(?),?,?,?,?)");
-            $sth->execute(array($login,$nom,$prenom,$mdp,$casert,$admin,$trigramme,$argent));
+            $query = "INSERT INTO `utilisateurs` (`login`, `nom`, `prenom`, `mdp`, `casert`, `admin`, `trigramme`, `argent`) VALUES(?,?,?,SHA1(?),?,?,?,?)";
+            $sth = $dbh->prepare($query);
+            $request = $sth->execute(array($login,$nom,$prenom,$mdp,$casert,$admin,$trigramme,$argent));
             
         }
+        
     }
 
     
