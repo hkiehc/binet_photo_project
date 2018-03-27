@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="title">
+    <div class="col-md-6 col-md-offset-3 title">
         <h1> Nous Contacter </h1>
     </div>
 </div>

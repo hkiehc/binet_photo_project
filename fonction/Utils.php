@@ -29,31 +29,31 @@ $page_list = array(
 
 function checkpage($askedPage) {
     $page_list = array(
-    array(
-        "name" => "accueil",
-        "title" => "Impression Binet Photo",
-        "menutitle" => "Accueil",),
-    array(
-        "name" => "administrer",
-        "title" => "Administrer les commandes",
-        "menutitle" => "Administrer les commandes"),
-    array(
-        "name" => "commander",
-        "title" => "Passer une commande",
-        "menutitle" => "Passer une commande"),
-    array(
-        "name" => "compte",
-        "title" => "Mon compte",
-        "menutitle" => "Mon compte"),
-    array(
-        "name" => "contacter",
-        "title" => "Nous contacter",
-        "menutitle" => "Nous contacter"),
-    array(
-        "name" => "historique",
-        "title" => "Historique des commandes",
-        "menutitle" => "Historique des commandes"),
-);
+        array(
+            "name" => "accueil",
+            "title" => "Impression Binet Photo",
+            "menutitle" => "Accueil",),
+        array(
+            "name" => "administrer",
+            "title" => "Administrer les commandes",
+            "menutitle" => "Administrer les commandes"),
+        array(
+            "name" => "commander",
+            "title" => "Passer une commande",
+            "menutitle" => "Passer une commande"),
+        array(
+            "name" => "compte",
+            "title" => "Mon compte",
+            "menutitle" => "Mon compte"),
+        array(
+            "name" => "contacter",
+            "title" => "Nous contacter",
+            "menutitle" => "Nous contacter"),
+        array(
+            "name" => "historique",
+            "title" => "Historique des commandes",
+            "menutitle" => "Historique des commandes"),
+    );
     foreach ($page_list as $page) {
         if ($page["name"] == $askedPage) {
             return true;
@@ -64,31 +64,31 @@ function checkpage($askedPage) {
 
 function getPageTitle($askedPage) {
     $page_list = array(
-    array(
-        "name" => "accueil",
-        "title" => "Impression Binet Photo",
-        "menutitle" => "Accueil",),
-    array(
-        "name" => "administrer",
-        "title" => "Administrer les commandes",
-        "menutitle" => "Administrer les commandes"),
-    array(
-        "name" => "commander",
-        "title" => "Passer une commande",
-        "menutitle" => "Passer une commande"),
-    array(
-        "name" => "compte",
-        "title" => "Mon compte",
-        "menutitle" => "Mon compte"),
-    array(
-        "name" => "contacter",
-        "title" => "Nous contacter",
-        "menutitle" => "Nous contacter"),
-    array(
-        "name" => "historique",
-        "title" => "Historique des commandes",
-        "menutitle" => "Historique des commandes"),
-);
+        array(
+            "name" => "accueil",
+            "title" => "Impression Binet Photo",
+            "menutitle" => "Accueil",),
+        array(
+            "name" => "administrer",
+            "title" => "Administrer les commandes",
+            "menutitle" => "Administrer les commandes"),
+        array(
+            "name" => "commander",
+            "title" => "Passer une commande",
+            "menutitle" => "Passer une commande"),
+        array(
+            "name" => "compte",
+            "title" => "Mon compte",
+            "menutitle" => "Mon compte"),
+        array(
+            "name" => "contacter",
+            "title" => "Nous contacter",
+            "menutitle" => "Nous contacter"),
+        array(
+            "name" => "historique",
+            "title" => "Historique des commandes",
+            "menutitle" => "Historique des commandes"),
+    );
     foreach ($page_list as $page) {
         if ($page["name"] == $askedPage) {
             return $page["title"];
@@ -97,9 +97,20 @@ function getPageTitle($askedPage) {
 }
 
 function generateContent($askedPage) {
-    
     echo "<div id='content'>";
-    require("content/content_$askedPage.php");
+    if ($askedPage == "accueil") {
+        require("content/content_$askedPage.php");
+    } else {
+        if (isset($_SESSION["loggedIn"])) {
+            if ($_SESSION["loggedIn"]) {
+                require("content/content_$askedPage.php");
+            } else {
+                require("content/content_indisponible.php");
+            }
+        } else {
+            require("content/content_indisponible.php");
+        }
+    }
     echo "</div>";
 }
 
@@ -170,31 +181,31 @@ END;
 
 function generateNavbarLeft($askedPage) {
     $page_list = array(
-    array(
-        "name" => "accueil",
-        "title" => "Impression Binet Photo",
-        "menutitle" => "Accueil",),
-    array(
-        "name" => "administrer",
-        "title" => "Administrer les commandes",
-        "menutitle" => "Administrer les commandes"),
-    array(
-        "name" => "commander",
-        "title" => "Passer une commande",
-        "menutitle" => "Passer une commande"),
-    array(
-        "name" => "compte",
-        "title" => "Mon compte",
-        "menutitle" => "Mon compte"),
-    array(
-        "name" => "contacter",
-        "title" => "Nous contacter",
-        "menutitle" => "Nous contacter"),
-    array(
-        "name" => "historique",
-        "title" => "Historique des commandes",
-        "menutitle" => "Historique des commandes"),
-);
+        array(
+            "name" => "accueil",
+            "title" => "Impression Binet Photo",
+            "menutitle" => "Accueil",),
+        array(
+            "name" => "administrer",
+            "title" => "Administrer les commandes",
+            "menutitle" => "Administrer les commandes"),
+        array(
+            "name" => "commander",
+            "title" => "Passer une commande",
+            "menutitle" => "Passer une commande"),
+        array(
+            "name" => "compte",
+            "title" => "Mon compte",
+            "menutitle" => "Mon compte"),
+        array(
+            "name" => "contacter",
+            "title" => "Nous contacter",
+            "menutitle" => "Nous contacter"),
+        array(
+            "name" => "historique",
+            "title" => "Historique des commandes",
+            "menutitle" => "Historique des commandes"),
+    );
     echo" <ul class='nav navbar-nav'>";
     foreach ($page_list as $page) {
         $menutitle = $page["menutitle"];
@@ -202,7 +213,7 @@ function generateNavbarLeft($askedPage) {
         if ($page["name"] == $askedPage) {
             echo "<li class='active'><a href='index.php?page=$askedPage'>$menutitle</a></li>";
         } else {
-            $name=$page["name"];
+            $name = $page["name"];
             echo "<li><a href='index.php?page=$name'>$menutitle</a></li>";
         }
     }
@@ -225,6 +236,21 @@ function generateNavbarOff() {
     </ul>
 
 CHAINE_DE_FIN;
+}
+
+function generateNavbar($askedPage) {
+    generateNavHeader();
+    if (isset($_SESSION["loggedIn"])) {
+        if ($_SESSION["loggedIn"]) {
+            generateNavbarLeft($askedPage);
+            generateNavbarOff();
+        } else {
+            generateNavbarRight();
+        }
+    } else {
+        generateNavbarRight();
+    }
+    generateNavFooter();
 }
 
 ?>

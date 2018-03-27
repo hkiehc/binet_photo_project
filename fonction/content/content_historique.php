@@ -1,6 +1,5 @@
 <div class="row">
-    <div class="title">
-        <h1> Historique des commandes</h1>
+    <div class="col-md-6 col-md-offset-3 title"e des commandes</h1>
     </div>
 </div>
 <div class="row">

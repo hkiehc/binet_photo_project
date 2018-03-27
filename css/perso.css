@@ -9,37 +9,53 @@ and open the template in the editor.
 */
 @import url(http://fonts.googleapis.com/css?family=Shadows+Into+Light);
 
-[class*="col-"].gris {
-    background-color: grey;
+/*[class*="col-"].gris {
+    background-color: #ffe6cc;
     border:solid 1px white;
     padding-top: 15px;
     padding-bottom: 15px;
 }
 
 .temoignage {
-	font-family: 'Shadows Into Light', cursive;
-	font-size: x-large;
+        font-family: 'Shadows Into Light', cursive;
+        font-size: x-large;
+} 
+.artiste{
+        width:50%;
+        height:130px;
+        align-content:center;
+
 }
 
+.fond{
+        background-color: pink;
+}*/
+
 body{
-    background-color:#adadad;
+    background-color:#e6eeff;
 }
 
 div.title h1{
-    align-content: center;
+    text-align: center;
 }
 
 .jumbotron a{
     text-decoration: none;
     color: #255625;
 }
-.artiste{
-	width:50%;
-	height:130px;
-	align-content:center;
 
+
+/*#content{
+    border-radius: 4px ;
+    background-color:white;
+}*/
+
+.row{
+    margin-top: 5px;
+    border-radius: 4px ;
+    background-color:white;
 }
 
-.fond{
-	background-color: pink;
+h3{
+    text-align:center;
 }
