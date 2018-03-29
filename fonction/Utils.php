@@ -100,15 +100,21 @@ function generateContent($askedPage) {
     echo "<div id='content'>";
     if ($askedPage == "accueil") {
         require("content/content_$askedPage.php");
-    } else {
+    }
+
+    else if($askedPage == "accueil"){
+        require("content/content_$askedPage.php");
+    }
+
+     else {
         if (isset($_SESSION["loggedIn"])) {
             if ($_SESSION["loggedIn"]) {
                 require("content/content_$askedPage.php");
             } else {
-                require("content/content_indisponible.php");
+                require("content/content_erreur.php");
             }
         } else {
-            require("content/content_indisponible.php");
+            require("content/content_erreur.php");
         }
     }
     echo "</div>";
@@ -158,6 +164,27 @@ function generateHTMLFooter() {
 
 
 CHAINE_DE_FIN;
+}
+
+function generateProfile(){
+echo <<<END
+
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+        Dropdown
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+        <li role="presentation" class="divider"></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+      </ul>
+    </div>
+
+END;
+
 }
 
 function generateNavHeader() {
@@ -220,6 +247,7 @@ function generateNavbarLeft($askedPage) {
 }
 
 function generateNavbarRight() {
+
     echo <<<CHAINE_DE_FIN
     <ul class="nav navbar-nav navbar-right">
         <li><a href="index.php?todo=register_form"><span class="glyphicon glyphicon-user"></span> Créer un compte</a></li>
@@ -230,12 +258,15 @@ CHAINE_DE_FIN;
 }
 
 function generateNavbarOff() {
+
     echo <<<CHAINE_DE_FIN
     <ul class="nav navbar-nav navbar-right">
+        
         <li><a href="index.php?todo=logout"><span class="glyphicon glyphicon-off"></span> Se déconnecter</a></li>
     </ul>
 
 CHAINE_DE_FIN;
+
 }
 
 function generateNavbar($askedPage) {
@@ -252,5 +283,7 @@ function generateNavbar($askedPage) {
     }
     generateNavFooter();
 }
+
+
 
 ?>

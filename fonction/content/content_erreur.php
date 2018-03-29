@@ -7,7 +7,11 @@
                 <h2>
                     404 Not Found</h2>
                 <div class="error-details">
-                    Sorry, an error has occured, Requested page not found!
+                    
+
+                    <p>Accès non autorisé ou page indisponible. Veuillez Vous connecter ou retourner à l'accueil!</p>
+                    
+
                 </div>
                 <div class="error-actions">
                     <a href="index.php?page=accueil" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span>Retour à l'accueil</a>

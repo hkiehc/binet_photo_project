@@ -22,7 +22,7 @@ if (isset($_GET["page"])) {
         $authorized = true;
     } else {
         echo "page incorrecte";
-        $askedPage = "accueil"; //Il faudra changer accueil ici par la page erreur à créer
+        $askedPage = "erreur"; //Il faudra changer accueil ici par la page erreur à créer
     }
 } else {
     $askedPage = "accueil";
@@ -79,12 +79,14 @@ if (isset($_SESSION['loggedIn'])) {
             } else {
                 generateNavHeader();
                 generateNavbarLeft($askedPage);
+              
                 generateNavbarOff();
                 generateNavFooter();
             }
         } else {
             generateNavHeader();
             generateNavbarLeft($askedPage);
+           
             generateNavbarOff();
             generateNavFooter();
         }
