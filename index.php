@@ -12,8 +12,11 @@ require('fonction/Utils.php');
 require('fonction/logInOut.php');
 require('data_base/Database.php');
 require('data_base/Utilisateur.php');
+require('data_base/Photo.php');
 
 $dbh = Database::connect();
+/*$user1= Utilisateur::getUtilisateur($dbh, 'test');
+$user2= Utilisateur::getUtilisateur($dbh, 'a');*/  //Pour les tests
 
 if (isset($_GET["page"])) {
     $askedPage = $_GET["page"];

@@ -27,18 +27,22 @@
 </div>
 
 <div class="row">
-    <?php
-    if (isset($_GET['todo'])) {
-        if ($_GET['todo'] == "upload") {
-            echo "<p>photos envoyées!</p>";
-            Photos::upload_photos(); //fonction à écrire... par Cheikh bien sûr (-:
+    <div class="col-md-10 col-md-offset-1">   <?php
+    $dbh = Database::connect();
+    echo '<p>';
+    if (isset($_GET['execute'])) {
+        if ($_GET['execute'] == "upload") {
+            echo "Essai d'envoi!";
+            $user= Utilisateur::getUtilisateur($dbh, 'test');
+            $message=Photo::upload_photos($dbh, $user);
+            echo $message;
         } else {
-            echo "<p>erreur de code.</p>";
+            echo "echec lors de l'envoie des photos ou aucune photo déposée.";
         }
     }
+    echo "</p>";
     ?>
-    <div class="col-md-10 col-md-offset-1">
-        <form action="index.php?page=impression"
+        <form action="?page=commander&execute=upload"
               enctype="multipart/form-data" method="post">
             <input type="hidden" name="photo" value="true">
             <h3>

@@ -8,17 +8,14 @@ function logIn($dbh){
 	if(isset($user) && isset($login) && isset($mdp)){
 		if(Utilisateur::testerMdp2($dbh,$user,$mdp)){ 
 			$_SESSION['loggedIn'] = true;  // autoriser la connexion
-
 		}
 		else{
 			$_SESSION['loggedIn'] = false;
-		}
-		
+		}	
 	}
 	else{
 			$_SESSION['loggedIn'] = false;
 	}
-	
 }
 
 function logOut(){ //ok
@@ -38,17 +35,11 @@ function register($dbh){ //ok
    		isset($_POST["up2"]) && $_POST["up2"] != "" &&
    		$_POST["up"] == $_POST["up2"])
     	{ 
-    	
-    	Utilisateur::insererUtilisateur($dbh,$_POST["login"],$_POST["nom"],$_POST["prenom"],$_POST["up"],$_POST["casert"],'0',$_POST["trigramme"],1.);
-	
+    	Utilisateur::insererUtilisateur($dbh,$_POST["login"],$_POST["nom"],$_POST["prenom"],$_POST["up"],$_POST["casert"],'0',$_POST["trigramme"]);
 	}
- 
-
 }
 
 function changepassword($dbh){ // a tester dans Utilisateur avant toute chose
-	
-
 	if(isset($_POST["login"]) && $_POST["login"] != "" &&
 		isset($_POST["amp"]) && $_POST["amp"] != "" &&
 	   isset($_POST["nmp"]) && $_POST["nmp"] != "" &&
@@ -61,10 +52,7 @@ function changepassword($dbh){ // a tester dans Utilisateur avant toute chose
 			Utilisateur::update_password($_POST["login"],$_POST["nmp"]);
 			
 		}
-
-	}
-	  
-
+        }
 }
 
 function deleteuser($dbh){  // a tester dans Utilisateur avant toute chose

@@ -5,11 +5,12 @@
         <group>
             <file>file:/C:/xampp/htdocs/binet_photo_project/data_base/Utilisateur.php</file>
             <file>file:/C:/xampp/htdocs/binet_photo_project/fonction/content/content_commander.php</file>
+            <file>file:/C:/xampp/htdocs/binet_photo_project/fonction/content/content_administrer.php</file>
             <file>file:/C:/xampp/htdocs/binet_photo_project/index.php</file>
-            <file>file:/C:/xampp/htdocs/binet_photo_project/fonction/content/content_accueil.php</file>
             <file>file:/C:/xampp/htdocs/binet_photo_project/fonction/Utils.php</file>
             <file>file:/C:/xampp/htdocs/binet_photo_project/css/perso.css</file>
-            <file>file:/C:/xampp/htdocs/binet_photo_project/data_base/photos.php</file>
+            <file>file:/C:/xampp/htdocs/binet_photo_project/fonction/logInOut.php</file>
+            <file>file:/C:/xampp/htdocs/binet_photo_project/data_base/Photo.php</file>
         </group>
     </open-files>
 </project-private>

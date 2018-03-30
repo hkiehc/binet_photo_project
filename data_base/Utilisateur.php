@@ -9,11 +9,10 @@ class Utilisateur{
     public $casert;
     public $admin;
     public $trigramme;
-    public $argent;
  
     public function __toString() {
 
-    	return "[".$this->login."] ".$this->nom." ".$this->prenom.", né le ".$this->casert.",".$this->admin.",".$this->trigramme.",".$this->argent;
+    	return "[".$this->login."] ".$this->nom." ".$this->prenom.", né le ".$this->casert.",".$this->admin.",".$this->trigramme;
     	
     }
 
@@ -30,22 +29,17 @@ class Utilisateur{
         return $user;                      
     }
 
-    public static function insererUtilisateur($dbh,$login,$nom,$prenom,$mdp,$casert,$admin,$trigramme,$argent){
+    public static function insererUtilisateur($dbh,$login,$nom,$prenom,$mdp,$casert,$admin,$trigramme){
         if(Utilisateur::getUtilisateur($dbh,$login) == null){
-            $query = "INSERT INTO `utilisateurs` (`login`, `nom`, `prenom`, `mdp`, `casert`, `admin`, `trigramme`, `argent`) VALUES(?,?,?,SHA1(?),?,?,?,?)";
+            $query = "INSERT INTO `utilisateurs` (`login`, `nom`, `prenom`, `mdp`, `casert`, `admin`, `trigramme`) VALUES(?,?,?,SHA1(?),?,?,?)";
             $sth = $dbh->prepare($query);
-            $request = $sth->execute(array($login,$nom,$prenom,$mdp,$casert,$admin,$trigramme,$argent));
+            $request = $sth->execute(array($login,$nom,$prenom,$mdp,$casert,$admin,$trigramme));
             
-        }
-        
+        }   
     }
 
-    
-
     public static function testerMdp($dbh,$login,$mdp){
-
         $user = Utilisateur::getUtilisateur($dbh,$login);
-
         return ($user->mdp == sha1($mdp));
         
 
@@ -72,10 +66,6 @@ class Utilisateur{
         $sth = $dbh->prepare($query);
         $sth->execute(array($login));
     }
-
-
-
-    
 }
 
 ?>

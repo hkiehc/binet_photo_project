@@ -100,13 +100,9 @@ function generateContent($askedPage) {
     echo "<div id='content'>";
     if ($askedPage == "accueil") {
         require("content/content_$askedPage.php");
-    }
-
-    else if($askedPage == "accueil"){
+    } else if ($askedPage == "accueil") {
         require("content/content_$askedPage.php");
-    }
-
-     else {
+    } else {
         if (isset($_SESSION["loggedIn"])) {
             if ($_SESSION["loggedIn"]) {
                 require("content/content_$askedPage.php");
@@ -166,8 +162,8 @@ function generateHTMLFooter() {
 CHAINE_DE_FIN;
 }
 
-function generateProfile(){
-echo <<<END
+function generateProfile() {
+    echo <<<END
 
     <div class="dropdown">
       <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
@@ -184,7 +180,6 @@ echo <<<END
     </div>
 
 END;
-
 }
 
 function generateNavHeader() {
@@ -266,15 +261,18 @@ function generateNavbarOff() {
     </ul>
 
 CHAINE_DE_FIN;
-
 }
 
 function generateNavbar($askedPage) {
     generateNavHeader();
     if (isset($_SESSION["loggedIn"])) {
         if ($_SESSION["loggedIn"]) {
-            generateNavbarLeft($askedPage);
-            generateNavbarOff();
+            if ($askedPage == "erreur") {
+                generateNavbarLeft("accueil");
+            } else {
+                generateNavbarLeft($askedPage);
+                generateNavbarOff();
+            }
         } else {
             generateNavbarRight();
         }
@@ -283,7 +281,5 @@ function generateNavbar($askedPage) {
     }
     generateNavFooter();
 }
-
-
 
 ?>
