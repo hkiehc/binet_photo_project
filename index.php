@@ -38,23 +38,19 @@ if (!isset($_SESSION['loggedIn'])) { //J'arrive sur le site pour la première fo
 
         if ($_GET["todo"] == "login_form") {
             printLoginForm();
-            generateHTMLFooter();
         } else if ($_GET["todo"] == "register_form") {
-            printregisterForm();
-            generateHTMLFooter();
+            printregisterForm();          
         } else if ($_GET["todo"] == "login") {
             logIn($dbh);
         } else if ($_GET["todo"] == "logout") {
             generateNavHeader();
             generateNavbarRight();
             generateNavFooter();
-            generateHTMLFooter();
         } else if ($_GET["todo"] == "register") {
             register($dbh);
             generateNavHeader();
             generateNavbarRight();
             generateNavFooter();
-            generateHTMLFooter();
         } else {
             echo "Oops erreur 404 not found";
         }
@@ -62,7 +58,6 @@ if (!isset($_SESSION['loggedIn'])) { //J'arrive sur le site pour la première fo
         generateNavHeader();
         generateNavbarRight();
         generateNavFooter();
-        generateHTMLFooter();
     }
 }
 
@@ -83,23 +78,28 @@ if (isset($_SESSION['loggedIn'])) {
                 generateNavHeader();
                 generateNavbarLeft($askedPage);
               
-                generateNavbarOff();
+                generateProfile($_SESSION['user'],$_SESSION['name']);
                 generateNavFooter();
             }
         } else {
             generateNavHeader();
             generateNavbarLeft($askedPage);
            
-            generateNavbarOff();
+            generateProfile($_SESSION['user'],$_SESSION['name']);
+            
             generateNavFooter();
         }
     } else {
         logOut();
         if (isset($_GET["todo"])) {
             if ($_GET["todo"] == "login_form") {
+                generateNavHeader();
                 printLoginForm();
+                generateNavFooter();
             } else if ($_GET["todo"] == "register_form") {
+                generateNavHeader();
                 printregisterForm();
+                generateNavFooter();
             } else {
                 generateNavHeader();
                 generateNavbarRight();

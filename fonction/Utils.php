@@ -162,24 +162,26 @@ function generateHTMLFooter() {
 CHAINE_DE_FIN;
 }
 
-function generateProfile() {
-    echo <<<END
+function generateProfile($prenom,$nom){
 
-    <div class="dropdown">
-      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-        Dropdown
+echo <<<END
+
+    <ul class="nav navbar-nav navbar-right" navbar-right>
+      <button class="btn btn-secondary  dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+        $prenom $nom
         <span class="caret"></span>
       </button>
-      <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+
+      <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><span class="glyphicon glyphicon-wrench"></span> Paramètres</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=compte"><span class="glyphicon glyphicon-user"></span> Mon Compte</a></li>
         <li role="presentation" class="divider"></li>
-        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?todo=logout"><span class="glyphicon glyphicon-off"></span> Se déconnecter</a></li>
       </ul>
-    </div>
+    </ul>
 
 END;
+
 }
 
 function generateNavHeader() {
@@ -215,18 +217,18 @@ function generateNavbarLeft($askedPage) {
             "name" => "commander",
             "title" => "Passer une commande",
             "menutitle" => "Passer une commande"),
-        array(
+       /* array(
             "name" => "compte",
             "title" => "Mon compte",
-            "menutitle" => "Mon compte"),
+            "menutitle" => "Mon compte"), */
         array(
             "name" => "contacter",
             "title" => "Nous contacter",
             "menutitle" => "Nous contacter"),
-        array(
+    /*    array(
             "name" => "historique",
             "title" => "Historique des commandes",
-            "menutitle" => "Historique des commandes"),
+            "menutitle" => "Historique des commandes"),*/
     );
     echo" <ul class='nav navbar-nav'>";
     foreach ($page_list as $page) {
@@ -239,6 +241,7 @@ function generateNavbarLeft($askedPage) {
             echo "<li><a href='index.php?page=$name'>$menutitle</a></li>";
         }
     }
+    echo "</ul>";
 }
 
 function generateNavbarRight() {

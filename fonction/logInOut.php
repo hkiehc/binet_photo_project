@@ -8,6 +8,10 @@ function logIn($dbh){
 	if(isset($user) && isset($login) && isset($mdp)){
 		if(Utilisateur::testerMdp2($dbh,$user,$mdp)){ 
 			$_SESSION['loggedIn'] = true;  // autoriser la connexion
+			$_SESSION['user'] = $user->prenom;
+			$_SESSION['name'] = $user->nom;
+			$_SESSION['login'] = $user->login;
+			$_SESSION['admin'] = $user->admin;
 		}
 		else{
 			$_SESSION['loggedIn'] = false;
