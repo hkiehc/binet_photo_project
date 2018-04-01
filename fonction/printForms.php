@@ -4,6 +4,7 @@ function printLoginForm(){
 echo <<<CHAINE_DE_FIN
 
 	<form class= "form-horizontal" action="index.php?todo=login" method="post">
+  <div class="col-sm-6 col-sm-offset-3">
    
       <div class="form-group row">
         <label for="login" class="col-2 col-form-label"></label>
@@ -30,6 +31,7 @@ echo <<<CHAINE_DE_FIN
     	
       <a href="index.php?todo=register_form">Créer un compte</a>
  
+  </div> 
  	</form>
 
 
@@ -45,6 +47,7 @@ echo <<<CHAINE_DE_FIN
 <form action="index.php?todo=register" method=post
       oninput="up2.setCustomValidity(up2.value != up.value ? 'Les mots de passe diffèrent.' : '')">
 
+  <div class="col-sm-6 col-sm-offset-3">
   <div class="form-group row">
     <label for="login" class="col-2 col-form-label"></label>
     <div class="col-10">
@@ -101,6 +104,7 @@ echo <<<CHAINE_DE_FIN
     </div>
   </div> 
   	
+</div>
  </form>
 
 
@@ -116,6 +120,7 @@ function printChangePasswordForm(){
 echo <<<CHAINE_DE_FIN
 
 	<form action="index.php?todo=changepassword" method="post">
+    <div class="col-sm-6 col-sm-offset-3">
 		<p>
   			<label for="login">login:</label>
   			<input id="login" type=text required name="login">
@@ -134,6 +139,8 @@ echo <<<CHAINE_DE_FIN
  		</p>
     	
     	<p><input type="submit" value="Valider" /></p>
+
+    </div>
   	</form>
 
 CHAINE_DE_FIN;
@@ -144,6 +151,7 @@ function printdeleteuserForm(){
 echo <<<CHAINE_DE_FIN
 
 	<form action="index.php?todo=delete" method="post">
+  <div class="col-sm-6 col-sm-offset-3">
 		<p>
   			<label for="login">login:</label>
   			<input id="login" type=text required name="login">
@@ -154,6 +162,7 @@ echo <<<CHAINE_DE_FIN
  		</p>
  		<p><input type="submit" value="Supprimmer compte" /></p>
  	
+    </div>
   	</form>
 
 CHAINE_DE_FIN;

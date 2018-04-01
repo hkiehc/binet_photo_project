@@ -76,14 +76,14 @@ if (isset($_SESSION['loggedIn'])) {
                //$_session est supprimé et on bascule dans la première condiition
             } else {
                 generateNavHeader();
-                generateNavbarLeft($askedPage);
+                generateNavbarLeft($askedPage,$_SESSION['admin']);
               
                 generateProfile($_SESSION['user'],$_SESSION['name']);
                 generateNavFooter();
             }
         } else {
             generateNavHeader();
-            generateNavbarLeft($askedPage);
+            generateNavbarLeft($askedPage,$_SESSION['admin']);
            
             generateProfile($_SESSION['user'],$_SESSION['name']);
             
@@ -121,5 +121,7 @@ if (isset($_GET["todo"])) {
     generateContent($askedPage);
 }
 
+
+generateContact();
 generateHTMLFooter();
 ?>
